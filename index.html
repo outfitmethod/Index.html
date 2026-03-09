@@ -632,8 +632,8 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
 <section id="services">
   <div class="section-inner">
     <p class="section-label">Services</p>
-    <h2 class="services-headline">Two ways to work together.</h2>
-    <div class="services-grid">
+    <h2 class="services-headline">The Personal Outfit Plan.</h2>
+    <div class="services-grid" style="grid-template-columns: 1fr;">
 
   <!-- Service 1 -->
   <div class="service-card">
@@ -648,21 +648,6 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
       <li>Delivered within 10-15 working days</li>
     </ul>
     <div class="service-price">£60 <span>one-off</span></div>
-  </div>
-
-  <!-- Service 2 -->
-  <div class="service-card">
-    <p class="service-number">02</p>
-    <h3 class="service-name">Capsule Wardrobe Build</h3>
-    <p class="service-desc">A considered wardrobe built around outfits, not excess. For those who want to simplify while improving how everything works together.</p>
-    <ul class="service-includes">
-      <li>Lifestyle and budget intake</li>
-      <li>20–25 mix-and-match pieces</li>
-      <li>Seasonal focus</li>
-      <li>Clear buying guidance</li>
-      <li>Delivered within 10-15 working days</li>
-    </ul>
-    <div class="service-price">£80 <span>one-off</span></div>
   </div>
 
 </div>
@@ -730,7 +715,7 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
       </div>
       <div>
         <div class="about-body">
-          <p>Outfit Method is built around the idea that dressing well should feel repeatable, not effortful. The aim isn't perfection, it's confidence and consistency.</p>
+          <p>Outfit Method is built around the idea that dressing well should feel easy and repeatable.</p>
           <p>I don't push products or recommend things for the sake of it. Everything is chosen because it earns its place in an outfit. My focus is helping you understand what works, what doesn't, and why, so you can make better decisions long term.</p>
           <p>All services are delivered virtually. A limited number of clients are taken on at any one time.</p>
         </div>
@@ -746,9 +731,8 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
     <div>
       <p class="section-label" style="color:rgba(200,191,176,0.4);">Enquiries</p>
       <h2 class="contact-headline">Ready to get started?</h2>
-      <p class="contact-sub">Leave your name and email and I'll come back to you within 24 hours with next steps.</p>
+      <p class="contact-sub">Leave your name and email and I'll come back to you within 24 hours. I take on a limited number of clients at a time to make sure every plan gets the attention it deserves.</p>
 
-```
   <form action="https://formspree.io/f/xzdjbrbk" method="POST" style="margin-top: 8px;">
     <div style="margin-bottom: 16px;">
       <label style="display:block; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(200,191,176,0.5); margin-bottom:8px;">Name</label>
@@ -757,6 +741,10 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
     <div style="margin-bottom: 32px;">
       <label style="display:block; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(200,191,176,0.5); margin-bottom:8px;">Email</label>
       <input type="email" name="email" required style="width:100%; background:transparent; border:none; border-bottom:1px solid rgba(200,191,176,0.3); padding:10px 0; color:#f5f0e8; font-family:'Jost',sans-serif; font-size:0.95rem; font-weight:300; outline:none; transition: border-color 0.2s;" onfocus="this.style.borderColor='rgba(200,191,176,0.8)'" onblur="this.style.borderColor='rgba(200,191,176,0.3)'">
+    </div>
+    <div style="margin-bottom: 32px;">
+      <label style="display:block; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(200,191,176,0.5); margin-bottom:8px;">Tell me a bit about what you're looking for</label>
+      <textarea name="message" rows="4" style="width:100%; background:transparent; border:none; border-bottom:1px solid rgba(200,191,176,0.3); padding:10px 0; color:#f5f0e8; font-family:'Jost',sans-serif; font-size:0.95rem; font-weight:300; outline:none; transition: border-color 0.2s; resize:none;" onfocus="this.style.borderColor='rgba(200,191,176,0.8)'" onblur="this.style.borderColor='rgba(200,191,176,0.3)'"></textarea>
     </div>
     <button type="submit" style="background:transparent; border:1px solid rgba(200,191,176,0.5); color:#f5f0e8; font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; padding:14px 36px; cursor:pointer; transition: all 0.25s;" onmouseover="this.style.background='rgba(200,191,176,0.15)'" onmouseout="this.style.background='transparent'">Send enquiry</button>
   </form>
