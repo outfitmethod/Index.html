@@ -10,583 +10,104 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: #faf8f4; color: #1a1a18; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
 
-:root {
-–cream: #f5f0e8;
-–warm-white: #faf8f4;
-–ink: #1a1a18;
-–mid: #6b6660;
-–light: #c8bfb0;
-–accent: #2c2c2a;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-background: #faf8f4;
-color: #1a1a18;
-font-family: ‘Jost’, sans-serif;
-font-weight: 300;
-font-size: 16px;
-line-height: 1.7;
-overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 100;
-padding: 24px 48px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-background: rgba(250, 248, 244, 0.92);
-backdrop-filter: blur(8px);
-border-bottom: 1px solid rgba(200, 191, 176, 0.3);
-}
-
-.nav-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 400;
-font-size: 1.2rem;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-color: #1a1a18;
-text-decoration: none;
-}
-
-.nav-links {
-display: flex;
-gap: 36px;
-list-style: none;
-}
-
-.nav-links a {
-font-size: 0.75rem;
-letter-spacing: 0.14em;
-text-transform: uppercase;
-color: #6b6660;
-text-decoration: none;
-transition: color 0.2s;
-}
-
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(250,248,244,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(200,191,176,0.3); }
+.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-weight: 400; font-size: 1.2rem; letter-spacing: 0.12em; text-transform: uppercase; color: #1a1a18; text-decoration: none; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6660; text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: #1a1a18; }
 
-/* HERO */
-.hero {
-min-height: 100vh;
-display: flex;
-align-items: center;
-padding: 120px 48px 80px;
-position: relative;
-overflow: hidden;
-}
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
+.hero::before { content: ‘’; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(200,191,176,0.2) 0%, transparent 70%); pointer-events: none; }
+.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+.hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: #6b6660; margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+.hero-headline { font-family: ‘Cormorant Garamond’, serif; font-weight: 300; font-size: clamp(3.2rem, 7vw, 6.5rem); line-height: 1.05; color: #1a1a18; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+.hero-headline em { font-style: italic; color: #6b6660; }
+.hero-sub { max-width: 480px; font-size: 1rem; color: #6b6660; line-height: 1.8; margin-bottom: 52px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+.hero-cta { display: inline-block; padding: 14px 36px; border: 1px solid #1a1a18; font-family: ‘Jost’, sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a18; text-decoration: none; transition: all 0.25s; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
+.hero-cta:hover { background: #1a1a18; color: #faf8f4; }
+.hero-rule { position: absolute; bottom: 48px; left: 48px; right: 48px; height: 1px; background: #c8bfb0; opacity: 0; animation: fadeIn 1s 1.2s forwards; }
+
+section { padding: 72px 48px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: #c8bfb0; margin-bottom: 48px; display: flex; align-items: center; gap: 16px; }
+.section-label::after { content: ‘’; display: block; height: 1px; width: 48px; background: #c8bfb0; }
+
+.problem { background: #f5f0e8; }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.problem-headline { font-family: ‘Cormorant Garamond’, serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.2; color: #1a1a18; }
+.problem-headline em { font-style: italic; color: #6b6660; }
+.problem-body { color: #6b6660; font-size: 0.95rem; line-height: 1.9; }
+.problem-body p + p { margin-top: 20px; }
+
+.services-headline { font-family: ‘Cormorant Garamond’, serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 2.8rem); color: #1a1a18; margin-bottom: 64px; max-width: 500px; line-height: 1.2; }
+.services-grid { display: grid; gap: 2px; background: #c8bfb0; }
+.service-card { background: #faf8f4; padding: 56px 48px; transition: background 0.3s; }
+.service-card:hover { background: #f5f0e8; }
+.service-number { font-family: ‘Cormorant Garamond’, serif; font-size: 0.85rem; color: #c8bfb0; margin-bottom: 28px; letter-spacing: 0.1em; }
+.service-name { font-family: ‘Cormorant Garamond’, serif; font-weight: 400; font-size: 1.7rem; color: #1a1a18; margin-bottom: 16px; line-height: 1.2; }
+.service-desc { font-size: 0.88rem; color: #6b6660; line-height: 1.8; margin-bottom: 32px; }
+.service-includes { list-style: none; margin-bottom: 40px; }
+.service-includes li { font-size: 0.82rem; color: #6b6660; padding: 8px 0; border-bottom: 1px solid rgba(200,191,176,0.4); letter-spacing: 0.02em; display: flex; align-items: center; gap: 12px; }
+.service-includes li::before { content: ‘—’; color: #c8bfb0; font-size: 0.75rem; }
+.service-price { font-family: ‘Jost’, sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #6b6660; }
+
+.testimonial { background: #1a1a18; padding: 100px 48px; }
+.testimonial-quote { font-family: ‘Cormorant Garamond’, serif; font-style: italic; font-weight: 300; font-size: clamp(1.1rem, 2vw, 1.6rem); color: #f5f0e8; line-height: 1.4; max-width: 780px; margin-bottom: 40px; }
+.testimonial-attr { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: #c8bfb0; }
+
+.process { background: #f5f0e8; }
+.process-headline { font-family: ‘Cormorant Garamond’, serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 2.8rem); color: #1a1a18; margin-bottom: 64px; line-height: 1.2; }
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: #c8bfb0; }
+.process-step { background: #f5f0e8; padding: 40px 36px; }
+.step-num { font-family: ‘Cormorant Garamond’, serif; font-size: 2.5rem; font-weight: 300; color: #c8bfb0; line-height: 1; margin-bottom: 20px; }
+.step-title { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; font-weight: 400; color: #1a1a18; margin-bottom: 12px; }
+.step-desc { font-size: 0.82rem; color: #6b6660; line-height: 1.8; }
+
+.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+.about-headline { font-family: ‘Cormorant Garamond’, serif; font-weight: 300; font-size: clamp(2rem, 3vw, 2.6rem); color: #1a1a18; margin-bottom: 28px; line-height: 1.2; }
+.about-body { font-size: 0.95rem; color: #6b6660; line-height: 1.9; }
+.about-body p + p { margin-top: 20px; }
+
+.contact { background: #1a1a18; padding: 100px 48px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-divider { height: 1px; background: rgba(200,191,176,0.15); margin: 64px 0; }
+.contact-headline { font-family: ‘Cormorant Garamond’, serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 3rem); color: #f5f0e8; line-height: 1.15; margin-bottom: 24px; }
+.contact-sub { font-size: 0.88rem; color: #c8bfb0; line-height: 1.8; margin-bottom: 40px; }
+.contact-btn { display: inline-block; padding: 14px 36px; border: 1px solid rgba(200,191,176,0.5); color: #f5f0e8; font-family: ‘Jost’, sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: all 0.25s; }
+.contact-btn:hover { background: rgba(200,191,176,0.15); }
+.contact-details { padding-top: 8px; }
+.contact-item { padding: 24px 0; border-bottom: 1px solid rgba(200,191,176,0.15); }
+.contact-item-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(200,191,176,0.5); margin-bottom: 8px; }
+.contact-item-value { font-size: 0.9rem; color: #c8bfb0; line-height: 1.6; }
+
+footer { padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(200,191,176,0.2); background: #1a1a18; }
+.footer-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(200,191,176,0.5); text-decoration: none; }
+.footer-links { display: flex; gap: 28px; list-style: none; }
+.footer-links a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(200,191,176,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: #c8bfb0; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.hero::before {
-content: ‘’;
-position: absolute;
-top: -20%;
-right: -10%;
-width: 600px;
-height: 600px;
-background: radial-gradient(circle, rgba(200,191,176,0.2) 0%, transparent 70%);
-pointer-events: none;
-}
-
-.hero-inner {
-max-width: 1100px;
-margin: 0 auto;
-width: 100%;
-}
-
-.hero-eyebrow {
-font-size: 0.7rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #6b6660;
-margin-bottom: 32px;
-opacity: 0;
-animation: fadeUp 0.8s 0.2s forwards;
-}
-
-.hero-headline {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: clamp(3.2rem, 7vw, 6.5rem);
-line-height: 1.05;
-letter-spacing: -0.01em;
-color: #1a1a18;
-margin-bottom: 40px;
-opacity: 0;
-animation: fadeUp 0.8s 0.4s forwards;
-}
-
-.hero-headline em {
-font-style: italic;
-color: #6b6660;
-}
-
-.hero-sub {
-max-width: 480px;
-font-size: 1rem;
-color: #6b6660;
-line-height: 1.8;
-margin-bottom: 52px;
-opacity: 0;
-animation: fadeUp 0.8s 0.6s forwards;
-}
-
-.hero-cta {
-display: inline-block;
-padding: 14px 36px;
-border: 1px solid #1a1a18;
-font-family: ‘Jost’, sans-serif;
-font-size: 0.72rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: #1a1a18;
-text-decoration: none;
-transition: all 0.25s;
-opacity: 0;
-animation: fadeUp 0.8s 0.8s forwards;
-}
-
-.hero-cta:hover {
-background: #1a1a18;
-color: #faf8f4;
-}
-
-.hero-rule {
-position: absolute;
-bottom: 48px;
-left: 48px;
-right: 48px;
-height: 1px;
-background: #c8bfb0;
-opacity: 0;
-animation: fadeIn 1s 1.2s forwards;
-}
-
-/* SECTION BASE */
-section {
-padding: 72px 48px;
-}
-
-.section-inner {
-max-width: 1100px;
-margin: 0 auto;
-}
-
-.section-label {
-font-size: 0.68rem;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: #c8bfb0;
-margin-bottom: 48px;
-display: flex;
-align-items: center;
-gap: 16px;
-}
-
-.section-label::after {
-content: ‘’;
-display: block;
-height: 1px;
-width: 48px;
-background: #c8bfb0;
-}
-
-/* PROBLEM */
-.problem {
-background: #f5f0e8;
-}
-
-.problem-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: start;
-}
-
-.problem-headline {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: clamp(2rem, 3.5vw, 3rem);
-line-height: 1.2;
-color: #1a1a18;
-}
-
-.problem-headline em {
-font-style: italic;
-color: #6b6660;
-}
-
-.problem-body {
-color: #6b6660;
-font-size: 0.95rem;
-line-height: 1.9;
-}
-
-.problem-body p + p {
-margin-top: 20px;
-}
-
-/* SERVICES */
-.services-headline {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: clamp(2rem, 3.5vw, 2.8rem);
-color: #1a1a18;
-margin-bottom: 64px;
-max-width: 500px;
-line-height: 1.2;
-}
-
-.services-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 2px;
-background: #c8bfb0;
-}
-
-.service-card {
-background: #faf8f4;
-padding: 56px 48px;
-position: relative;
-transition: background 0.3s;
-}
-
-.service-card:hover {
-background: #f5f0e8;
-}
-
-.service-number {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 0.85rem;
-color: #c8bfb0;
-margin-bottom: 28px;
-letter-spacing: 0.1em;
-}
-
-.service-name {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 400;
-font-size: 1.7rem;
-color: #1a1a18;
-margin-bottom: 16px;
-line-height: 1.2;
-}
-
-.service-desc {
-font-size: 0.88rem;
-color: #6b6660;
-line-height: 1.8;
-margin-bottom: 32px;
-}
-
-.service-includes {
-list-style: none;
-margin-bottom: 40px;
-}
-
-.service-includes li {
-font-size: 0.82rem;
-color: #6b6660;
-padding: 8px 0;
-border-bottom: 1px solid rgba(200,191,176,0.4);
-letter-spacing: 0.02em;
-display: flex;
-align-items: center;
-gap: 12px;
-}
-
-.service-includes li::before {
-content: ‘,’;
-color: #c8bfb0;
-font-size: 0.75rem;
-}
-
-.service-price {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2rem;
-font-weight: 300;
-color: #1a1a18;
-}
-
-.service-price span {
-font-family: ‘Jost’, sans-serif;
-font-size: 0.72rem;
-color: #6b6660;
-letter-spacing: 0.1em;
-margin-left: 4px;
-vertical-align: middle;
-}
-
-/* TESTIMONIAL */
-.testimonial {
-background: #1a1a18;
-padding: 72px 48px;
-}
-
-.testimonial .section-label {
-color: rgba(200,191,176,0.4);
-}
-
-.testimonial .section-label::after {
-background: rgba(200,191,176,0.4);
-}
-
-.testimonial-quote {
-font-family: ‘Cormorant Garamond’, serif;
-font-style: italic;
-font-weight: 300;
-font-size: clamp(1.1rem, 2vw, 1.6rem);
-color: #f5f0e8;
-line-height: 1.4;
-max-width: 780px;
-margin-bottom: 40px;
-}
-
-.testimonial-attr {
-font-size: 0.75rem;
-letter-spacing: 0.16em;
-text-transform: uppercase;
-color: #c8bfb0;
-}
-
-/* HOW IT WORKS */
-.process {
-background: #f5f0e8;
-}
-
-.process-headline {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: clamp(2rem, 3.5vw, 2.8rem);
-color: #1a1a18;
-margin-bottom: 64px;
-line-height: 1.2;
-}
-
-.process-steps {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 2px;
-background: #c8bfb0;
-}
-
-.process-step {
-background: #f5f0e8;
-padding: 40px 36px;
-}
-
-.step-num {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2.5rem;
-font-weight: 300;
-color: #c8bfb0;
-line-height: 1;
-margin-bottom: 20px;
-}
-
-.step-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-font-weight: 400;
-color: #1a1a18;
-margin-bottom: 12px;
-}
-
-.step-desc {
-font-size: 0.82rem;
-color: #6b6660;
-line-height: 1.8;
-}
-
-/* ABOUT */
-.about-grid {
-display: grid;
-grid-template-columns: 1fr 2fr;
-gap: 80px;
-align-items: start;
-}
-
-.about-label-col {
-padding-top: 8px;
-}
-
-.about-headline {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: clamp(2rem, 3vw, 2.6rem);
-color: #1a1a18;
-margin-bottom: 28px;
-line-height: 1.2;
-}
-
-.about-body {
-font-size: 0.95rem;
-color: #6b6660;
-line-height: 1.9;
-}
-
-.about-body p + p {
-margin-top: 20px;
-}
-
-/* CONTACT */
-.contact {
-background: #1a1a18;
-padding: 72px 48px;
-}
-
-.contact .section-label {
-color: rgba(200,191,176,0.4);
-}
-
-.contact .section-label::after {
-background: rgba(200,191,176,0.4);
-}
-
-.contact-inner {
-max-width: 1100px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: start;
-}
-
-.contact-headline {
-font-family: ‘Cormorant Garamond’, serif;
-font-weight: 300;
-font-size: clamp(2rem, 3.5vw, 3rem);
-color: #f5f0e8;
-line-height: 1.15;
-margin-bottom: 24px;
-}
-
-.contact-sub {
-font-size: 0.88rem;
-color: #c8bfb0;
-line-height: 1.8;
-margin-bottom: 40px;
-}
-
-.contact-email-link {
-display: inline-block;
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.3rem;
-font-style: italic;
-color: #f5f0e8;
-text-decoration: none;
-border-bottom: 1px solid rgba(200,191,176,0.4);
-padding-bottom: 4px;
-transition: border-color 0.2s;
-}
-
-.contact-email-link:hover {
-border-color: #f5f0e8;
-}
-
-.contact-details {
-padding-top: 8px;
-}
-
-.contact-item {
-padding: 24px 0;
-border-bottom: 1px solid rgba(200,191,176,0.15);
-}
-
-.contact-item-label {
-font-size: 0.68rem;
-letter-spacing: 0.18em;
-text-transform: uppercase;
-color: rgba(200,191,176,0.5);
-margin-bottom: 8px;
-}
-
-.contact-item-value {
-font-size: 0.9rem;
-color: #c8bfb0;
-line-height: 1.6;
-}
-
-/* FOOTER */
-footer {
-padding: 32px 48px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-top: 1px solid rgba(200,191,176,0.2);
-background: #1a1a18;
-}
-
-.footer-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 0.95rem;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-color: rgba(200,191,176,0.5);
-text-decoration: none;
-}
-
-.footer-links {
-display: flex;
-gap: 28px;
-list-style: none;
-}
-
-.footer-links a {
-font-size: 0.72rem;
-letter-spacing: 0.14em;
-text-transform: uppercase;
-color: rgba(200,191,176,0.4);
-text-decoration: none;
-transition: color 0.2s;
-}
-
-.footer-links a:hover {
-color: #c8bfb0;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(20px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
 nav { padding: 20px 24px; }
 .nav-links { display: none; }
-section { padding: 72px 24px; }
+section { padding: 56px 24px; }
 .hero { padding: 100px 24px 72px; }
-.problem-grid,
-.services-grid,
-.about-grid,
-.contact-inner { grid-template-columns: 1fr; gap: 40px; }
+.problem-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
 .process-steps { grid-template-columns: 1fr 1fr; }
 .hero-rule { left: 24px; right: 24px; }
 footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
 .testimonial, .contact { padding: 72px 24px; }
 }
-
-@media (max-width: 480px) {
-.process-steps { grid-template-columns: 1fr; }
-}
+@media (max-width: 480px) { .process-steps { grid-template-columns: 1fr; } }
 </style>
 
 </head>
 <body>
-
-<!-- NAV -->
 
 <nav>
   <a href="#" class="nav-logo">Outfit Method</a>
@@ -595,24 +116,19 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
     <li><a href="#process">How it works</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Enquire</a></li>
+    <li><a href="https://www.instagram.com/outfitmethod" target="_blank">Instagram</a></li>
   </ul>
 </nav>
-
-<!-- HERO -->
 
 <section class="hero" id="top">
   <div class="hero-inner">
     <p class="hero-eyebrow">Personal Styling · Virtual · By Appointment</p>
-    <h1 class="hero-headline">
-      The method for dressing well<br>and <em>elevating wardrobes.</em>
-    </h1>
+    <h1 class="hero-headline">The method for dressing well<br>and <em>elevating wardrobes.</em></h1>
     <p class="hero-sub">Outfit Method is a personal styling service built around your existing wardrobe. For people who want to dress better without starting over.</p>
-    <a href="#contact" class="hero-cta">Start an enquiry</a>
+    <a href="#contact" class="hero-cta">Work with me</a>
   </div>
   <div class="hero-rule"></div>
 </section>
-
-<!-- PROBLEM -->
 
 <section class="problem" id="about-problem">
   <div class="section-inner">
@@ -627,54 +143,37 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
   </div>
 </section>
 
-<!-- SERVICES -->
-
 <section id="services">
   <div class="section-inner">
     <p class="section-label">Services</p>
     <h2 class="services-headline">The Personal Outfit Plan.</h2>
     <div class="services-grid" style="grid-template-columns: 1fr;">
-
-  <!-- Service 1 -->
-  <div class="service-card">
-    <p class="service-number">01</p>
-    <h3 class="service-name">Personal Outfit Plan</h3>
-    <p class="service-desc">A clear, practical plan for everyday dressing. Built around what you already own, with considered additions where needed.</p>
-    <ul class="service-includes">
-      <li>Style questionnaire</li>
-      <li>8–10 complete outfits</li>
-      <li>Buying links for additions</li>
-      <li>Notes on why each outfit works</li>
-      <li>Delivered within 10-15 working days</li>
-    </ul>
-    <div class="service-price">£60 <span>one-off</span></div>
-  </div>
-
-</div>
-
+      <div class="service-card">
+        <p class="service-number">01</p>
+        <h3 class="service-name">Personal Outfit Plan</h3>
+        <p class="service-desc">A clear, practical plan for everyday dressing. Built around what you already own, with considered additions where needed.</p>
+        <ul class="service-includes">
+          <li>Style questionnaire</li>
+          <li>8–10 complete outfits</li>
+          <li>Buying links for additions</li>
+          <li>Notes on why each outfit works</li>
+          <li>Delivered within 10-15 working days</li>
+        </ul>
+        <div class="service-price">Enquire for pricing</div>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- TESTIMONIAL -->
 
 <section class="testimonial">
   <div class="section-inner">
     <p class="section-label" style="color:rgba(200,191,176,0.4);">Client feedback</p>
-    <blockquote class="testimonial-quote">
-      "I had lots of clothes, but I wasn't making the most out of them, and didn't feel like my outfits were polished or well put together… I would definitely recommend working with Joe and am already considering doing the same thing again for another season."
-    </blockquote>
-    <p class="testimonial-attr" style="margin-bottom: 64px;">Corey, Personal Outfit Plan</p>
-
-<blockquote class="testimonial-quote">
-  "The whole process was smooth and I loved the level of detail. I also appreciated the guidelines included in the plan."
-</blockquote>
-<p class="testimonial-attr">Manuel, Personal Outfit Plan</p>
-```
-
+    <blockquote class="testimonial-quote">"I had lots of clothes, but I wasn't making the most out of them, and didn't feel like my outfits were polished or well put together… I would definitely recommend working with Joe and am already considering doing the same thing again for another season."</blockquote>
+    <p class="testimonial-attr" style="margin-bottom:64px;">Corey, Personal Outfit Plan</p>
+    <blockquote class="testimonial-quote">"The whole process was smooth and I loved the level of detail. I also appreciated the guidelines included in the plan."</blockquote>
+    <p class="testimonial-attr">Manuel, Personal Outfit Plan</p>
   </div>
 </section>
-
-<!-- PROCESS -->
 
 <section class="process" id="process">
   <div class="section-inner">
@@ -693,7 +192,7 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
-        <h3 class="step-title">Payment & slot</h3>
+        <h3 class="step-title">Payment and slot</h3>
         <p class="step-desc">Once you're happy to proceed, payment secures your place and work begins.</p>
       </div>
       <div class="process-step">
@@ -705,18 +204,16 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
   </div>
 </section>
 
-<!-- ABOUT -->
-
 <section id="about">
   <div class="section-inner">
     <p class="section-label">About</p>
     <div class="about-grid">
-      <div class="about-label-col">
+      <div>
         <h2 class="about-headline">Built around outfits.<br><em>Not excess.</em></h2>
       </div>
       <div>
         <div class="about-body">
-          <p>Outfit Method is built around the idea that dressing well should feel easy and repeatable.</p>
+          <p>Outfit Method is built around the idea that dressing well should feel easy and repeatable. The aim isn't perfection, it's confidence and consistency.</p>
           <p>I don't push products or recommend things for the sake of it. Everything is chosen because it earns its place in an outfit. My focus is helping you understand what works, what doesn't, and why, so you can make better decisions long term.</p>
           <p>All services are delivered virtually. A limited number of clients are taken on at any one time.</p>
         </div>
@@ -725,30 +222,67 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
   </div>
 </section>
 
-<!-- CONTACT -->
-
 <section class="contact" id="contact">
-  <div class="contact-inner">
-    <div>
-      <p class="section-label" style="color:rgba(200,191,176,0.4);">Enquiries</p>
-      <h2 class="contact-headline">Ready to get started?</h2>
-      <p class="contact-sub">Get in touch directly by email and I'll come back to you within 24 hours. I take on a limited number of clients at a time to make sure every plan gets the attention it deserves.</p>
+  <div class="section-inner">
 
-  <a href="mailto:joe@outfitmethod.com?subject=Personal%20Outfit%20Plan%20Enquiry&body=Hi%20Joe%2C%0A%0AI%27m%20interested%20in%20finding%20out%20more%20about%20the%20Personal%20Outfit%20Plan.%0A%0AMy%20name%20is%3A%0A%0AA%20bit%20about%20what%20I%27m%20looking%20for%3A" style="display:inline-block; margin-top: 8px; padding: 14px 36px; border: 1px solid rgba(200,191,176,0.5); color: #f5f0e8; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; transition: all 0.25s;" onmouseover="this.style.background='rgba(200,191,176,0.15)'" onmouseout="this.style.background='transparent'">Work with me</a>
+<h2 class="contact-headline" style="margin-bottom:64px;">Work with me.</h2>
+
+<div class="contact-grid" style="margin-bottom:48px;">
+  <div>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#f5f0e8; margin-bottom:16px;">Personal styling</p>
+    <p class="contact-sub">Get in touch directly by email and I'll come back to you within 24 hours. I take on a limited number of clients at a time to make sure every plan gets the attention it deserves.</p>
+    <a id="styling-email" href="#" class="contact-btn">Start an enquiry</a>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#2c2c2a; align-self:start;">
+    <div style="background:#1a1a18; padding:20px 24px;">
+      <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Response time</p>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">24 hours</p>
+    </div>
+    <div style="background:#1a1a18; padding:20px 24px;">
+      <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Delivery</p>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">Virtual</p>
+    </div>
+  </div>
 </div>
-<div class="contact-details">
-  <div class="contact-item">
-    <p class="contact-item-label">Response time</p>
-    <p class="contact-item-value">Within 24 hours</p>
+
+<div class="contact-grid">
+  <div>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#f5f0e8; margin-bottom:16px;">Brand collaborations</p>
+    <p class="contact-sub">For brand partnerships and collaborations, get in touch directly.</p>
+    <a id="collab-email" href="#" class="contact-btn">Get in touch</a>
   </div>
-  <div class="contact-item">
-    <p class="contact-item-label">Delivery</p>
-    <p class="contact-item-value">All services delivered virtually by email</p>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#2c2c2a; align-self:start;">
+    <div style="background:#1a1a18; padding:20px 24px;">
+      <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Followers</p>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">20k+</p>
+    </div>
+    <div style="background:#1a1a18; padding:20px 24px;">
+      <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Monthly views</p>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">1.5M+</p>
+    </div>
   </div>
-  <div class="contact-item">
-    <p class="contact-item-label">Availability</p>
-    <p class="contact-item-value">Limited client spaces taken at any one time</p>
+</div>
+
   </div>
-  <div class="contact-item">
-    <p class="contact-item-label">Instagram</p>
-    <p class="contact-item-value"><a href="https://www.instagram.com/outfitmethod" target="_blank" style="color:#c8bfb0;text-decoration:none;">@outfitmethod</a></p
+</section>
+
+<footer>
+  <a href="#top" class="footer-logo">Outfit Method</a>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.instagram.com/outfitmethod" target="_blank">Instagram</a></li>
+  </ul>
+</footer>
+
+<script>
+  var collab = document.getElementById('collab-email');
+  collab.href = 'mailto:' + 'joe' + '@' + 'outfitmethod.com' + '?subject=Brand%20Collaboration%20Enquiry';
+
+  var styling = document.getElementById('styling-email');
+  styling.href = 'mailto:' + 'joe' + '@' + 'outfitmethod.com' + '?subject=Personal%20Outfit%20Plan%20Enquiry&body=Hi%20Joe%2C%0A%0AI%27m%20interested%20in%20finding%20out%20more%20about%20the%20Personal%20Outfit%20Plan.%0A%0AMy%20name%20is%3A%0A%0AA%20bit%20about%20what%20I%27m%20looking%20for%3A';
+</script>
+
+</body>
+</html>
