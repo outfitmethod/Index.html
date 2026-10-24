@@ -91,6 +91,27 @@ footer { padding: 32px 48px; display: flex; justify-content: space-between; alig
 .footer-links a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(200,191,176,0.4); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: #c8bfb0; }
 
+
+.interest { background: #f5f0e8; }
+.interest-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+.interest-headline { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.2; color: #1a1a18; margin-bottom: 40px; }
+.interest-item + .interest-item { margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(200,191,176,0.6); }
+.interest-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.5rem; color: #1a1a18; margin-bottom: 10px; line-height: 1.2; }
+.interest-body { font-size: 0.92rem; color: #6b6660; line-height: 1.85; }
+.interest-form { background: #faf8f4; padding: 40px; border: 1px solid rgba(200,191,176,0.6); }
+.interest-legend { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: #6b6660; margin-bottom: 16px; }
+.interest-check { display: flex; align-items: center; gap: 12px; font-size: 0.92rem; color: #1a1a18; margin-bottom: 12px; cursor: pointer; }
+.interest-check input { width: 16px; height: 16px; accent-color: #1a1a18; cursor: pointer; }
+.interest-label { display: block; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: #6b6660; margin: 28px 0 8px; }
+.interest-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid #c8bfb0; padding: 10px 0; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 1rem; color: #1a1a18; border-radius: 0; outline: none; transition: border-color 0.2s; }
+.interest-input:focus { border-bottom-color: #1a1a18; }
+.interest-btn { margin-top: 32px; padding: 14px 36px; border: 1px solid #1a1a18; background: transparent; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #1a1a18; cursor: pointer; transition: all 0.25s; }
+.interest-btn:hover:not(:disabled) { background: #1a1a18; color: #faf8f4; }
+.interest-btn:disabled { opacity: 0.6; cursor: default; }
+.interest-note { margin-top: 20px; font-size: 0.78rem; color: #6b6660; line-height: 1.7; }
+.interest-message { margin-top: 16px; font-size: 0.9rem; color: #1a1a18; }
+.interest-message[hidden] { display: none; }
+
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -99,7 +120,8 @@ nav { padding: 20px 24px; }
 .nav-links { display: none; }
 section { padding: 56px 24px; }
 .hero { padding: 100px 24px 72px; }
-.problem-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+.problem-grid, .about-grid, .contact-grid, .interest-grid { grid-template-columns: 1fr; gap: 40px; }
+.interest-form { padding: 28px 24px; }
 .process-steps { grid-template-columns: 1fr 1fr; }
 .hero-rule { left: 24px; right: 24px; }
 footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
@@ -115,6 +137,7 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
   <a href="#" class="nav-logo">Outfit Method</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
+    <li><a href="#interest">Coming soon</a></li>
     <li><a href="#process">How it works</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Enquire</a></li>
@@ -125,24 +148,10 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
 <section class="hero" id="top">
   <div class="hero-inner">
     <p class="hero-eyebrow">Personal Styling · Virtual · By Appointment</p>
-    <h1 class="hero-headline">The method for dressing well<br>and <em>elevating wardrobes.</em></h1>
-    <p class="hero-sub">Outfit Method is a personal styling service built around your existing wardrobe. For people who want to dress better without starting over.</p>
+    <h1 class="hero-headline">Dressing well doesn't need<br>to be <em>complicated.</em></h1>
     <a href="#contact" class="hero-cta">Work with me</a>
   </div>
   <div class="hero-rule"></div>
-</section>
-
-<section class="problem" id="about-problem">
-  <div class="section-inner">
-    <p class="section-label">The problem</p>
-    <div class="problem-grid">
-      <h2 class="problem-headline">Most people don't need <em>more</em> clothes.</h2>
-      <div class="problem-body">
-        <p>They already own enough. The problem is that very little of it works together. Buying individual items without a clear sense of how they'll be worn leads to wasted money and a wardrobe that never quite feels resolved.</p>
-        <p>Outfit Method exists to fix that. Rather than focusing on pieces in isolation, everything starts with the outfit, because that's what actually gets worn.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section id="services">
@@ -151,11 +160,11 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
     <h2 class="services-headline">The Personal Outfit Plan.</h2>
     <div class="services-grid" style="grid-template-columns: 1fr;">
       <div class="service-card">
-        <p class="service-number">01</p>
-        <h3 class="service-name">Personal Outfit Plan</h3>
-        <p class="service-desc">A clear, practical plan for everyday dressing. Built around what you already own, with considered additions where needed.</p>
+                <h3 class="service-name">Personal Outfit Plan</h3>
+        <p class="service-desc">A clear and practical plan to getting dressed.</p>
         <ul class="service-includes">
           <li>Style questionnaire</li>
+          <li>A small wardrobe of recommended clothing built from scratch</li>
           <li>8–10 complete outfits</li>
           <li>Buying links for additions</li>
           <li>Notes on why each outfit works</li>
@@ -163,6 +172,38 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
         </ul>
         <div class="service-price">Enquire for pricing</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="interest" id="interest">
+  <div class="section-inner">
+    <p class="section-label">Coming soon</p>
+    <div class="interest-grid">
+      <div>
+        <h2 class="interest-headline">A lookbook and a cap.</h2>
+        <div class="interest-item">
+          <h3 class="interest-name">The Four Seasons Lookbook</h3>
+          <p class="interest-body">20 outfits, five for each season, built from the small set of pieces I wear most. Every piece is named and every outfit has notes on how I wear it.</p>
+        </div>
+        <div class="interest-item">
+          <h3 class="interest-name">The Outfit Method cap</h3>
+          <p class="interest-body">A locally embroidered navy cap with Method branding. Designed to be versatile and fit within any outfit on the Outfit Method Instagram page.</p>
+        </div>
+      </div>
+      <form class="interest-form" id="interestForm" action="https://formspree.io/f/xzdjbrbk" method="POST">
+        <p class="interest-legend">Let me know about</p>
+        <label class="interest-check"><input type="checkbox" name="interest" value="Lookbook" checked> The Lookbook</label>
+        <label class="interest-check"><input type="checkbox" name="interest" value="Cap" checked> The cap</label>
+        <label class="interest-label" for="interestEmail">Email</label>
+        <input class="interest-input" id="interestEmail" type="email" name="email" placeholder="Your email address" required>
+        <input type="hidden" name="_subject" value="Website interest: Lookbook / Cap">
+        <input type="hidden" name="source" value="Website: Lookbook and cap interest">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none;">
+        <button class="interest-btn" id="interestBtn" type="submit">Notify me</button>
+        <p class="interest-note">One email when each is ready, and nothing else.</p>
+        <p class="interest-message" id="interestMessage" role="status" aria-live="polite" hidden></p>
+      </form>
     </div>
   </div>
 </section>
@@ -196,6 +237,16 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
     <div class="carousel-slide">
       <blockquote class="testimonial-quote">"The Personal Outfit Plan has helped me so much. I now have a set of outfits I can go to, but also the Capsule Wardrobe section of the plan means that I can put other outfits together easily!"</blockquote>
       <p class="testimonial-attr">Tom, Personal Outfit Plan</p>
+    </div>
+
+    <div class="carousel-slide">
+      <blockquote class="testimonial-quote">"Love the plan Joe built for me. I had an idea of what suited me and what didn't so I was able to tell him what sort of outfits I needed to fit my lifestyle and the plan was perfect!"</blockquote>
+      <p class="testimonial-attr">Simon, Personal Outfit Plan</p>
+    </div>
+
+    <div class="carousel-slide">
+      <blockquote class="testimonial-quote">"Thanks Joe! Absolutely spot on for what I needed and really was worth the money. Will be back again for another season!"</blockquote>
+      <p class="testimonial-attr">James, Personal Outfit Plan</p>
     </div>
 
   </div>
@@ -260,13 +311,13 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
 <div class="contact-grid" style="margin-bottom:48px;">
   <div>
     <p style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#f5f0e8; margin-bottom:16px;">Personal styling</p>
-    <p class="contact-sub">Get in touch directly by email and I'll come back to you within 24 hours. I take on a limited number of clients at a time to make sure every plan gets the attention it deserves.</p>
+    <p class="contact-sub">Get in touch directly by email and I'll come back to you within 24-48 hours. I take on a limited number of clients at a time to make sure every plan gets the attention it deserves.</p>
     <a id="styling-email" href="#" class="contact-btn">Start an enquiry</a>
   </div>
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#2c2c2a; align-self:start;">
     <div style="background:#1a1a18; padding:20px 24px;">
       <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Response time</p>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">24 hours</p>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">24-48 hours</p>
     </div>
     <div style="background:#1a1a18; padding:20px 24px;">
       <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Delivery</p>
@@ -284,7 +335,7 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#2c2c2a; align-self:start;">
     <div style="background:#1a1a18; padding:20px 24px;">
       <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Followers</p>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">83k+</p>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:#f5f0e8;">88k+</p>
     </div>
     <div style="background:#1a1a18; padding:20px 24px;">
       <p style="font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:rgba(200,191,176,0.4); margin-bottom:6px;">Monthly views</p>
@@ -312,6 +363,35 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
   collab.href = 'mailto:' + 'joe' + '@' + 'outfitmethod.com' + '?subject=Brand%20Collaboration%20Enquiry';
   var styling = document.getElementById('styling-email');
   styling.href = 'mailto:' + 'joe' + '@' + 'outfitmethod.com' + '?subject=Personal%20Outfit%20Plan%20Enquiry&body=Hi%20Joe%2C%0A%0AI%27m%20interested%20in%20finding%20out%20more%20about%20the%20Personal%20Outfit%20Plan.%0A%0AMy%20name%20is%3A%0A%0AA%20bit%20about%20what%20I%27m%20looking%20for%3A';
+
+  // Interest form
+  (function () {
+    var form = document.getElementById('interestForm');
+    var btn = document.getElementById('interestBtn');
+    var msg = document.getElementById('interestMessage');
+    function show(text) { msg.textContent = text; msg.hidden = false; }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.querySelector('input[name="interest"]:checked')) {
+        show('Please tick at least one.');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error('failed');
+          form.reset();
+          show("Thanks, you're on the list.");
+          btn.textContent = "You're on the list";
+        })
+        .catch(function () {
+          show('Something went wrong. Please try again in a moment.');
+          btn.disabled = false;
+          btn.textContent = 'Notify me';
+        });
+    });
+  })();
 
   // Carousel
   (function () {
