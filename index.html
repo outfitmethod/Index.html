@@ -181,29 +181,21 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
     <p class="section-label">Coming soon</p>
     <div class="interest-grid">
       <div>
-        <h2 class="interest-headline">Outfit Method Products.</h2>
+        <h2 class="interest-headline">A lookbook and a cap.</h2>
         <div class="interest-item">
           <h3 class="interest-name">The Four Seasons Lookbook</h3>
-          <p class="interest-body">24 outfits, six for each season, built from a small set of pieces. Every piece is named and every outfit has notes on how I wear it.</p>
+          <p class="interest-body">24 outfits, six for each season, built from my favourite pieces. Every piece is named and every outfit has notes on how I wear it. It's a digital download you can keep on your phone.</p>
         </div>
         <div class="interest-item">
-          <h3 class="interest-name">The Outfit Method Cap</h3>
-          <p class="interest-body">A limited edition locally embroidered navy cap with Outfit Method branding. Designed to be versatile and fit within any outfit on the Outfit Method Instagram page.</p>
+          <h3 class="interest-name">The Outfit Method cap</h3>
+          <p class="interest-body">A locally embroidered navy cap with Method branding. Designed to be versatile and fit within any outfit on the Outfit Method Instagram page.</p>
         </div>
       </div>
-      <form class="interest-form" id="interestForm" action="https://formspree.io/f/xzdjbrbk" method="POST">
-        <p class="interest-legend">Let me know about</p>
-        <label class="interest-check"><input type="checkbox" name="interest" value="Lookbook" checked> The Lookbook</label>
-        <label class="interest-check"><input type="checkbox" name="interest" value="Cap" checked> The cap</label>
-        <label class="interest-label" for="interestEmail">Email</label>
-        <input class="interest-input" id="interestEmail" type="email" name="email" placeholder="Your email address" required>
-        <input type="hidden" name="_subject" value="Website interest: Lookbook / Cap">
-        <input type="hidden" name="source" value="Website: Lookbook and cap interest">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none;">
-        <button class="interest-btn" id="interestBtn" type="submit">Notify me</button>
-        <p class="interest-note">One email when each is ready, and nothing else.</p>
-        <p class="interest-message" id="interestMessage" role="status" aria-live="polite" hidden></p>
-      </form>
+      <div class="interest-form">
+        <p class="interest-legend">The Four Seasons Lookbook</p>
+        <p class="interest-body" style="margin-bottom:28px;">Add your email and I'll let you know as soon as it's out.</p>
+        <a class="interest-btn" href="https://outfit-method.kit.com/c48ada50d3" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;">Register your interest</a>
+      </div>
     </div>
   </div>
 </section>
@@ -290,7 +282,7 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
     <p class="section-label">About</p>
     <div class="about-grid">
       <div>
-        <h2 class="about-headline">Built around outfits.<br><em>Not excess.</em></h2>
+        <h2 class="about-headline">Built around outfits.<br></em></h2>
       </div>
       <div>
         <div class="about-body">
@@ -363,35 +355,6 @@ footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
   collab.href = 'mailto:' + 'joe' + '@' + 'outfitmethod.com' + '?subject=Brand%20Collaboration%20Enquiry';
   var styling = document.getElementById('styling-email');
   styling.href = 'mailto:' + 'joe' + '@' + 'outfitmethod.com' + '?subject=Personal%20Outfit%20Plan%20Enquiry&body=Hi%20Joe%2C%0A%0AI%27m%20interested%20in%20finding%20out%20more%20about%20the%20Personal%20Outfit%20Plan.%0A%0AMy%20name%20is%3A%0A%0AA%20bit%20about%20what%20I%27m%20looking%20for%3A';
-
-  // Interest form
-  (function () {
-    var form = document.getElementById('interestForm');
-    var btn = document.getElementById('interestBtn');
-    var msg = document.getElementById('interestMessage');
-    function show(text) { msg.textContent = text; msg.hidden = false; }
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.querySelector('input[name="interest"]:checked')) {
-        show('Please tick at least one.');
-        return;
-      }
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-        .then(function (r) {
-          if (!r.ok) throw new Error('failed');
-          form.reset();
-          show("Thanks, you're on the list.");
-          btn.textContent = "You're on the list";
-        })
-        .catch(function () {
-          show('Something went wrong. Please try again in a moment.');
-          btn.disabled = false;
-          btn.textContent = 'Notify me';
-        });
-    });
-  })();
 
   // Carousel
   (function () {
